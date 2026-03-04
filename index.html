@@ -3,119 +3,129 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ali Khamenei – Timeline Interattiva</title>
+<title>Ali Khamenei – Analisi Interattiva</title>
 
 <style>
-body {
-    margin: 0;
+body{
+    margin:0;
     font-family: 'Segoe UI', sans-serif;
-    background-color: #0f172a;
-    color: #e2e8f0;
-    scroll-behavior: smooth;
+    background:#0f172a;
+    color:#e2e8f0;
+    scroll-behavior:smooth;
+    line-height:1.6;
 }
 
-header {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background: linear-gradient(135deg, #0f172a, #1e293b);
+nav{
+    position:fixed;
+    width:100%;
+    background:#111827;
+    padding:15px;
+    text-align:center;
+    z-index:1000;
 }
 
-header h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+nav a{
+    color:#f87171;
+    margin:0 12px;
+    text-decoration:none;
+    font-weight:bold;
 }
 
-header p {
-    font-size: 1.2rem;
-    max-width: 700px;
+header{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background:linear-gradient(135deg,#0f172a,#1e293b);
+    padding:20px;
 }
 
-nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(15, 23, 42, 0.9);
-    padding: 10px;
-    text-align: center;
-    z-index: 1000;
+header h1{
+    font-size:3rem;
 }
 
-nav a {
-    color: #f87171;
-    margin: 0 15px;
-    text-decoration: none;
-    font-weight: bold;
+section{
+    padding:120px 20px;
+    max-width:1000px;
+    margin:auto;
 }
 
-section {
-    padding: 100px 20px;
-    max-width: 900px;
-    margin: auto;
+h2{
+    border-left:4px solid #f87171;
+    padding-left:10px;
+    margin-bottom:30px;
 }
 
-h2 {
-    border-left: 4px solid #f87171;
-    padding-left: 10px;
+.timeline{
+    position:relative;
+    margin:50px 0;
 }
 
-.timeline {
-    position: relative;
-    margin: 50px 0;
+.timeline::before{
+    content:'';
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    width:4px;
+    height:100%;
+    background:#f87171;
 }
 
-.timeline::after {
-    content: '';
-    position: absolute;
-    width: 4px;
-    background-color: #f87171;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    margin-left: -2px;
+.timeline-item{
+    width:50%;
+    padding:20px 40px;
+    position:relative;
 }
 
-.event {
-    padding: 20px 40px;
-    position: relative;
-    width: 50%;
+.timeline-item:nth-child(odd){
+    left:0;
+    text-align:right;
 }
 
-.event.left {
-    left: 0;
+.timeline-item:nth-child(even){
+    left:50%;
 }
 
-.event.right {
-    left: 50%;
+.timeline-item::before{
+    content:'';
+    position:absolute;
+    top:30px;
+    width:20px;
+    height:20px;
+    background:#f87171;
+    border-radius:50%;
 }
 
-.event::before {
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    right: -10px;
-    background-color: #f87171;
-    border-radius: 50%;
-    top: 30px;
+.timeline-item:nth-child(odd)::before{
+    right:-10px;
 }
 
-.event.right::before {
-    left: -10px;
+.timeline-item:nth-child(even)::before{
+    left:-10px;
 }
 
-.card {
-    background-color: #1e293b;
-    padding: 20px;
-    border-radius: 8px;
+.card{
+    background:#1e293b;
+    padding:20px;
+    border-radius:8px;
 }
 
-footer {
-    text-align: center;
-    padding: 40px;
-    background-color: #1e293b;
+.fade{
+    opacity:0;
+    transform:translateY(30px);
+    transition:all 0.6s ease;
+}
+
+.fade.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+footer{
+    background:#111827;
+    text-align:center;
+    padding:40px;
 }
 </style>
 </head>
@@ -125,83 +135,163 @@ footer {
 <nav>
 <a href="#storia">Storia Iran</a>
 <a href="#khamenei">Khamenei</a>
+<a href="#ideologia">Ideologia</a>
 <a href="#regime">Regime</a>
+<a href="#societa">Società</a>
+<a href="#economia">Economia</a>
 <a href="#geopolitica">Geopolitica</a>
+<a href="#proteste">Proteste</a>
+<a href="#successione">Successione</a>
 </nav>
 
 <header>
 <div>
 <h1>Ali Khamenei</h1>
-<p>Storia, Ideologia e Geopolitica dell’Iran contemporaneo – Timeline interattiva accademica</p>
+<p>Analisi Storica, Politica e Geopolitica dell’Iran Contemporaneo</p>
 </div>
 </header>
 
-<section id="storia">
+<section id="storia" class="fade">
 <h2>Storia dell’Iran (1900–oggi)</h2>
+<p>
+Nel XX secolo l’Iran attraversa trasformazioni radicali: dalla Rivoluzione Costituzionale (1905–1911),
+alla centralizzazione autoritaria di Reza Shah, fino al regno di Mohammad Reza Pahlavi.
+Il colpo di stato del 1953 contro Mossadeq segna un punto cruciale nei rapporti con gli Stati Uniti.
+La Rivoluzione Islamica del 1979 abbatte la monarchia e inaugura la Repubblica Islamica.
+La guerra Iran-Iraq (1980–1988) consolida l’identità rivoluzionaria.
+Dal 1989 in poi, sotto la Guida Suprema, il sistema evolve mantenendo struttura teocratica.
+Le sanzioni internazionali e la questione nucleare influenzano lo sviluppo economico e diplomatico.
+L’Iran diventa attore centrale negli equilibri mediorientali contemporanei.
+</p>
 
 <div class="timeline">
-
-<div class="event left">
+<div class="timeline-item">
 <div class="card">
 <h3>1905–1911</h3>
-<p>Rivoluzione costituzionale persiana e limitazione del potere monarchico.</p>
+Rivoluzione costituzionale e nascita del Majles.
 </div>
 </div>
-
-<div class="event right">
+<div class="timeline-item">
 <div class="card">
 <h3>1953</h3>
-<p>Colpo di Stato contro Mossadeq sostenuto da USA e Regno Unito.</p>
+Operazione Ajax e restaurazione potere monarchico.
 </div>
 </div>
-
-<div class="event left">
+<div class="timeline-item">
 <div class="card">
 <h3>1979</h3>
-<p>Rivoluzione Islamica e nascita della Repubblica Islamica.</p>
+Rivoluzione Islamica.
 </div>
 </div>
-
-<div class="event right">
+<div class="timeline-item">
 <div class="card">
-<h3>1980–1988</h3>
-<p>Guerra Iran-Iraq e consolidamento del sistema rivoluzionario.</p>
+<h3>1989</h3>
+Nomina di Khamenei a Guida Suprema.
 </div>
 </div>
-
 </div>
 </section>
 
-<section id="khamenei">
+<section id="khamenei" class="fade">
 <h2>Ali Khamenei</h2>
-<p>Nato nel 1939 a Mashhad, formatosi nei centri religiosi sciiti, partecipa attivamente all’opposizione contro lo Shah. Presidente dal 1981 al 1989, diventa Guida Suprema dopo la morte di Khomeini.</p>
+<p>
+Nato nel 1939 a Mashhad, riceve formazione religiosa sciita.
+Partecipa all’opposizione contro lo Shah e viene arrestato più volte.
+Dopo la rivoluzione assume incarichi istituzionali chiave.
+Nel 1981 sopravvive a un attentato.
+Diventa Presidente della Repubblica fino al 1989.
+Dopo la morte di Khomeini viene nominato Guida Suprema.
+Consolida il controllo sulle istituzioni militari e religiose.
+Rappresenta l’autorità politica e spirituale massima dello Stato.
+</p>
 </section>
 
-<section id="regime">
+<section id="ideologia" class="fade">
+<h2>Ideologia e Velayat-e Faqih</h2>
+<p>
+Il principio del Velayat-e Faqih stabilisce la guida politica del giurista islamico.
+La dottrina combina teologia sciita e governo statale.
+La Guida Suprema detiene autorità finale sulle decisioni strategiche.
+Questo modello distingue l’Iran dalle democrazie liberali.
+</p>
+</section>
+
+<section id="regime" class="fade">
 <h2>Struttura del Regime</h2>
-<ul>
-<li>Guida Suprema</li>
-<li>Presidente eletto</li>
-<li>Consiglio dei Guardiani</li>
-<li>Assemblea degli Esperti</li>
-<li>Corpo delle Guardie Rivoluzionarie (IRGC)</li>
-</ul>
+<p>
+Il sistema politico iraniano è ibrido: elementi elettivi e supervisione religiosa.
+Il Consiglio dei Guardiani controlla le candidature.
+L’Assemblea degli Esperti nomina la Guida Suprema.
+I Pasdaran hanno ruolo militare ed economico rilevante.
+</p>
 </section>
 
-<section id="geopolitica">
-<h2>Geopolitica</h2>
-<ul>
-<li>Rivalità con Arabia Saudita</li>
-<li>Conflitto con Israele</li>
-<li>Sanzioni USA</li>
-<li>Questione nucleare</li>
-<li>Conflitti indiretti in Siria e Yemen</li>
-</ul>
+<section id="societa" class="fade">
+<h2>Società e Diritti Civili</h2>
+<p>
+La società iraniana è giovane e urbanizzata.
+Esistono limitazioni alla libertà di stampa e associazione.
+Le normative religiose influenzano la vita pubblica.
+Movimenti civili emergono periodicamente.
+</p>
+</section>
+
+<section id="economia" class="fade">
+<h2>Economia e Sanzioni</h2>
+<p>
+L’economia iraniana dipende fortemente dal petrolio.
+Le sanzioni USA ed europee hanno limitato investimenti e commercio.
+Inflazione e disoccupazione restano problematiche centrali.
+</p>
+</section>
+
+<section id="geopolitica" class="fade">
+<h2>Geopolitica Regionale</h2>
+<p>
+L’Iran sostiene attori alleati in Libano, Siria e Yemen.
+Le relazioni con Israele e Stati Uniti sono conflittuali.
+La questione nucleare è elemento centrale delle tensioni.
+</p>
+</section>
+
+<section id="proteste" class="fade">
+<h2>Proteste Interne</h2>
+<p>
+Dal 1999 al 2022 diverse ondate di proteste hanno attraversato il paese.
+Le richieste includono riforme economiche e sociali.
+Le autorità rispondono con misure di controllo.
+</p>
+</section>
+
+<section id="successione" class="fade">
+<h2>Scenari di Successione</h2>
+<p>
+Data l’età avanzata della Guida Suprema, il tema della successione è centrale.
+L’Assemblea degli Esperti avrà ruolo decisivo.
+Le dinamiche interne ai Pasdaran influenzeranno la stabilità futura.
+</p>
 </section>
 
 <footer>
-<p>Progetto accademico – Analisi storica e geopolitica</p>
+Progetto accademico – Analisi interattiva
 </footer>
+
+<script>
+const faders=document.querySelectorAll('.fade');
+const appearOptions={threshold:0.3};
+
+const appearOnScroll=new IntersectionObserver(function(entries,appearOnScroll){
+entries.forEach(entry=>{
+if(!entry.isIntersecting)return;
+entry.target.classList.add('visible');
+appearOnScroll.unobserve(entry.target);
+});
+},appearOptions);
+
+faders.forEach(fader=>{
+appearOnScroll.observe(fader);
+});
+</script>
 
 </body>
 </html>
