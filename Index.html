@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ali Khamenei – Timeline Interattiva</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #0f172a;
+    color: #e2e8f0;
+    scroll-behavior: smooth;
+}
+
+header {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+}
+
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+header p {
+    font-size: 1.2rem;
+    max-width: 700px;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(15, 23, 42, 0.9);
+    padding: 10px;
+    text-align: center;
+    z-index: 1000;
+}
+
+nav a {
+    color: #f87171;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+section {
+    padding: 100px 20px;
+    max-width: 900px;
+    margin: auto;
+}
+
+h2 {
+    border-left: 4px solid #f87171;
+    padding-left: 10px;
+}
+
+.timeline {
+    position: relative;
+    margin: 50px 0;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: #f87171;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -2px;
+}
+
+.event {
+    padding: 20px 40px;
+    position: relative;
+    width: 50%;
+}
+
+.event.left {
+    left: 0;
+}
+
+.event.right {
+    left: 50%;
+}
+
+.event::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: -10px;
+    background-color: #f87171;
+    border-radius: 50%;
+    top: 30px;
+}
+
+.event.right::before {
+    left: -10px;
+}
+
+.card {
+    background-color: #1e293b;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+footer {
+    text-align: center;
+    padding: 40px;
+    background-color: #1e293b;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<a href="#storia">Storia Iran</a>
+<a href="#khamenei">Khamenei</a>
+<a href="#regime">Regime</a>
+<a href="#geopolitica">Geopolitica</a>
+</nav>
+
+<header>
+<div>
+<h1>Ali Khamenei</h1>
+<p>Storia, Ideologia e Geopolitica dell’Iran contemporaneo – Timeline interattiva accademica</p>
+</div>
+</header>
+
+<section id="storia">
+<h2>Storia dell’Iran (1900–oggi)</h2>
+
+<div class="timeline">
+
+<div class="event left">
+<div class="card">
+<h3>1905–1911</h3>
+<p>Rivoluzione costituzionale persiana e limitazione del potere monarchico.</p>
+</div>
+</div>
+
+<div class="event right">
+<div class="card">
+<h3>1953</h3>
+<p>Colpo di Stato contro Mossadeq sostenuto da USA e Regno Unito.</p>
+</div>
+</div>
+
+<div class="event left">
+<div class="card">
+<h3>1979</h3>
+<p>Rivoluzione Islamica e nascita della Repubblica Islamica.</p>
+</div>
+</div>
+
+<div class="event right">
+<div class="card">
+<h3>1980–1988</h3>
+<p>Guerra Iran-Iraq e consolidamento del sistema rivoluzionario.</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<section id="khamenei">
+<h2>Ali Khamenei</h2>
+<p>Nato nel 1939 a Mashhad, formatosi nei centri religiosi sciiti, partecipa attivamente all’opposizione contro lo Shah. Presidente dal 1981 al 1989, diventa Guida Suprema dopo la morte di Khomeini.</p>
+</section>
+
+<section id="regime">
+<h2>Struttura del Regime</h2>
+<ul>
+<li>Guida Suprema</li>
+<li>Presidente eletto</li>
+<li>Consiglio dei Guardiani</li>
+<li>Assemblea degli Esperti</li>
+<li>Corpo delle Guardie Rivoluzionarie (IRGC)</li>
+</ul>
+</section>
+
+<section id="geopolitica">
+<h2>Geopolitica</h2>
+<ul>
+<li>Rivalità con Arabia Saudita</li>
+<li>Conflitto con Israele</li>
+<li>Sanzioni USA</li>
+<li>Questione nucleare</li>
+<li>Conflitti indiretti in Siria e Yemen</li>
+</ul>
+</section>
+
+<footer>
+<p>Progetto accademico – Analisi storica e geopolitica</p>
+</footer>
+
+</body>
+</html>
